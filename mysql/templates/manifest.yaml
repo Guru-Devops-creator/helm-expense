@@ -25,21 +25,3 @@ spec:
         - name: frontend
           image: thanug828189/frontend:{{.Values.deployment.imageVersion }} 
 
-
----
-kind: Service
-apiVersion: v1
-metadata: 
-    name: frontend
-    namespace: expense
-spec:
-  type: LoadBalancer
-  selector:        
-    app: expense
-    tier: web
-    project: expense
-  ports: 
-   - name: frontend-port
-     protocol: TCP
-     port: 8080
-     targetPort: 8080
